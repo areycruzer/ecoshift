@@ -16,7 +16,24 @@ def store(request):
 	context = {'products':products, 'cartItems':cartItems}
 	return render(request, 'store/store.html', context)
 
+def about(request):
+    return render(request, 'store/about.html')
 
+def about(request):
+    team = [
+        {"name": "Paarth", "position": "Backend Handler", "bio": "Backend Organiser with front-end skills"},
+        {"name": "Jayati", "position": "Data Expert", "bio": "Code Data Treasurer"},
+        {"name": "Swayam", "position": "Code-Coordinator", "bio": "Coordinates with AI/machine learning"},
+        {"name": "Urvashi", "position": "Frontend Expert", "bio": "Formats templates like no one else"}
+    ]
+    return render(request, 'store/about.html', {
+        "player1": team[0],
+        "player2": team[1],
+        "player3": team[2],
+        "player4": team[3]
+    })
+    
+    
 def cart(request):
 	data = cartData(request)
 
